@@ -20,7 +20,6 @@ public class AccountService {
         this.repository = repository;
     }
 
-
     public Account create(CreateAccountDto dto) {
         assertAccountWithGivenPeselDoesNotExist(dto.getPesel());
         Account account = Account.builder()
@@ -59,6 +58,4 @@ public class AccountService {
             throw new ResourceAlreadyExistsException("Account with given pesel already exists!");
         }
     }
-
-
 }

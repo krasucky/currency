@@ -56,7 +56,6 @@ public class AccountController {
         return ResponseEntity.ok(account);
     }
 
-
     @DeleteMapping("/{pesel}")
     public ResponseEntity<Void> deleteAccountByPesel(@PathVariable(value = "pesel") String pesel) {
         service.deleteAccountByPesel(pesel);
