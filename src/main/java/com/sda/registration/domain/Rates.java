@@ -1,4 +1,4 @@
-package com.sda.registration.controller;
+package com.sda.registration.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;

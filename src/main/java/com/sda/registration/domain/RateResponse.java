@@ -1,4 +1,4 @@
-package com.sda.registration.controller;
+package com.sda.registration.domain;
 
 import lombok.Data;
 

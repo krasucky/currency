@@ -1,6 +1,7 @@
 package com.sda.registration.controller;
 
 import com.sda.registration.domain.Account;
+import com.sda.registration.domain.RateResponse;
 import com.sda.registration.dto.ChangeCurrencyDto;
 import com.sda.registration.dto.CreateAccountDto;
 import com.sda.registration.dto.UpdateAccountDto;
@@ -32,19 +33,21 @@ public class AccountController {
 
     @GetMapping
     public ResponseEntity<List<Account>> findAllAccount() {
+
         List<Account> accounts = service.findAllAccounts();
         return ResponseEntity.ok(accounts);
     }
 
     @GetMapping("/{pesel}")
     public ResponseEntity<Account> findAccountByPesel(@PathVariable String pesel) {
-        Account accountByPesel = service.findAccountByPesel(pesel);
 
+        Account accountByPesel = service.findAccountByPesel(pesel);
         return ResponseEntity.ok(accountByPesel);
     }
 
     @PostMapping
     public ResponseEntity<Account> createAccount(@RequestBody @Valid CreateAccountDto dto) {
+
         Account acc = service.create(dto);
         return new ResponseEntity<>(acc, HttpStatus.CREATED);
     }
@@ -58,6 +61,7 @@ public class AccountController {
 
     @DeleteMapping("/{pesel}")
     public ResponseEntity<Void> deleteAccountByPesel(@PathVariable(value = "pesel") String pesel) {
+
         service.deleteAccountByPesel(pesel);
 
         return ResponseEntity
@@ -94,5 +98,4 @@ public class AccountController {
             return dto.getAmount().multiply(rate);
         }
     }
-
 }
